@@ -1,0 +1,51 @@
+FINAL PROJECT METRICS
+======================================================================
+
+EVALUATION
+Golden set size: 200
+
+INTENT BASELINES
+Majority Macro-F1:       0.0222
+TF-IDF Macro-F1:         0.0928
+Context TF-IDF Macro-F1:  0.1403
+
+FINAL AGENT
+Intent accuracy:         0.1700
+Action accuracy:         0.3300
+Auto-handle count:       51
+Escalate count:          149
+Automation coverage:     25.50%
+Automation precision:    76.47%
+Safe automation rate:    19.50%
+Escalation precision:     18.12%
+Escalation recall:        69.23%
+Escalation F1:            0.2872
+Reply coverage:           100.00%
+
+REPLY QUALITY
+Groundedness:             4.075/5
+Relevance:                3.775/5
+Helpfulness:              2.95/5
+Actionability:            3.7/5
+Brand alignment:          4.375/5
+Overall quality:          3.625/5
+Reviewer escalation accuracy: 80.00%
+
+AGREEMENT
+Second-judge weighted kappa: 0.675
+Second-judge escalation kappa: 1.0
+
+RETRIEVAL
+Mean top-1 similarity: 0.8399494999999998
+Mean max top-5 similarity: 0.8399494999999998
+
+TOP 5 FAILURE MODES
+1. intent_misclassification: 166/200 (83.00%)
+2. over_escalation: 22/200 (11.00%)
+3. weak_retrieval_evidence: 2/200 (1.00%)
+4. unsafe_automation: 1/200 (0.50%)
+5. low_intent_confidence: 1/200 (0.50%)
+
+FINAL OPERATING POLICY
+Intent confidence >= 0.50
+Retrieval similarity >= 0.70

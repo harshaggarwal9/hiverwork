@@ -1,0 +1,21 @@
+FAILURE ANALYSIS SUMMARY
+======================================================================
+
+Total agent examples: 200
+Observed failures: 193
+
+Failure distribution:
+intent_misclassification: 166 (83.00%)
+over_escalation: 22 (11.00%)
+no_major_failure: 7 (3.50%)
+weak_retrieval_evidence: 2 (1.00%)
+unsafe_automation: 1 (0.50%)
+low_intent_confidence: 1 (0.50%)
+low_helpfulness: 1 (0.50%)
+
+Top 5 failure modes:
+1. intent_misclassification: 166 (83.00%)
+2. over_escalation: 22 (11.00%)
+3. weak_retrieval_evidence: 2 (1.00%)
+4. unsafe_automation: 1 (0.50%)
+5. low_intent_confidence: 1 (0.50%)

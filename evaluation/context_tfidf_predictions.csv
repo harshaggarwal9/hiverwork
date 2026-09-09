@@ -1,0 +1,201 @@
+golden_id,customer_message,true_intent,predicted_intent,confidence,correct
+1,@115858 @AppleSupport my imac won't turn on after more than one hour loading. what's going on and how can i fix this.,device_troubleshooting,how_to_settings,0.8202,False
+2,@AppleSupport Thank You!,general_or_insufficient_context,how_to_settings,0.7243,False
+3,"@AppleSupport I’m using the iPhone 7, iOS 11.1, connected to a wall outlet, and it’s the original cable. It was working for my sisters phone but not mine",battery_power,battery_power,0.3456,True
+4,@AppleSupport Will do. Cheers.,software_update,battery_power,0.4839,False
+5,@AppleSupport I can’t update from iOS 11.0.1 https://t.co/isco5NAc3n,software_update,software_update,0.8194,True
+6,@AppleSupport can you help me check my battery health?,battery_power,battery_power,0.8202,True
+7,"@AppleSupport You know. I get it. My MacBook Pro is almost 8 years old. But if the older Macs are having such issues with this OS, then force obsolete us.",software_update,device_troubleshooting,0.6014,False
+8,Rented a 4K movie on the 4K Apple TV and the audio was out of sync with the video by more than a second. Thinking maybe hardware issue I tried downloading it on my iPad and it was the same. Good job @AppleSupport,apple_music_media,apple_music_media,0.7672,True
+9,@115858 I have received an email receipt for something I haven't purchased. Could you please direct me to someone who can help as I am at work and cannot ring up,purchase_store_refund,purchase_store_refund,0.6821,True
+10,@AppleSupport 11.0.1 15A403,software_update,software_update,0.3936,True
+11,@115858 FIX YO SHIT! Tired of this I️,device_troubleshooting,device_troubleshooting,0.4047,True
+12,"Hey @115858 ever since the new IOS update my phone has been randomly freezing, shutting off, not connecting to WiFi, and it’s a 6S+ WTF",connectivity,connectivity,0.6292,True
+13,@AppleSupport can not download anything from the App Store. In canada.,device_troubleshooting,connectivity,0.3604,False
+14,"I have the Worst luck with phone between @AppleSupport and @TMobileHelp I always have problems No service, now no battery power😡😡😡😡😡😡",general_or_insufficient_context,device_troubleshooting,0.2387,False
+15,@AppleSupport That said when I type it,general_or_insufficient_context,device_troubleshooting,0.3617,False
+16,@193767 @AppleSupport @116333 @119462 @123857 Battery lasting barely one day now 😡,how_to_settings,battery_power,0.3573,False
+17,@AppleSupport That worked thank you!,connectivity,how_to_settings,0.4441,False
+18,@AppleSupport What shall i do? https://t.co/xpTaWv3KdV,apple_music_media,how_to_settings,0.6649,False
+19,"@AppleSupport No error message, just constant spinning dial whilst phone/app connecting to exchange. Must be a 30sec lag compared to instant pre new IOS",device_troubleshooting,purchase_store_refund,0.173,False
+20,Hey @115858 I don’t think you fixed the glitch.,general_or_insufficient_context,device_troubleshooting,0.3156,False
+21,Around what time are y’all gone stop ignoring this box issue? @AppleSupport @115858,software_update,device_troubleshooting,0.3385,False
+22,@AppleSupport Sure,device_troubleshooting,device_troubleshooting,0.2847,True
+23,I️ need answers. Why do I️ still get that box with the question mark. My phone is updated. @AppleSupport,connectivity,device_troubleshooting,0.4313,False
+24,@AppleSupport We use Family Sharing. We use one Apple ID for all our iTunes purchases but each family member has an iCloud email address.,battery_power,apple_music_media,0.5917,False
+25,"@AppleSupport don’t know what you did when updated podcasts but it sucks. I delete the last episode in my library, I get unsubscribed?",account_security,apple_music_media,0.6789,False
+26,"@AppleSupport hi, my shipment W488495674 BeatsX has broken, how i claim the warantee?",device_troubleshooting,device_troubleshooting,0.2583,True
+27,"@AppleSupport I’m playing music on Spotify now, why isn’t Control Centre connected to it? I’m on an iPhone 7. #iOS11 https://t.co/8WBTSvKb7u",purchase_store_refund,apple_music_media,0.5099,False
+28,I'm so confused by this damn apple A thing with that square with the question mark y'all got me fucked up @115858,apple_music_media,device_troubleshooting,0.2438,False
+29,@68407 *sigh* I need this @AppleSupport @115858 glitch to be fixed ASAP! 😔,app_service_issue,device_troubleshooting,0.3196,False
+30,@AppleSupport The problem is that with iOS 11.0.2 the battery of my iPhone 6 runs empty after minimal usage. I cannot work with a disfunctional phone,how_to_settings,software_update,0.2288,False
+31,@AppleSupport 11.0.2,device_troubleshooting,device_troubleshooting,0.5825,True
+32,@AppleSupport ?,software_update,how_to_settings,0.3433,False
+33,"@AppleSupport Okay - trying to restore iPod Classic. iTunes is not recognizing the drive to restore. Already booted into DFU mode, what next?",battery_power,apple_music_media,0.315,False
+34,@AppleSupport I updated my phone two days ago and just now for 20 minuets my phone was repeatedly turning off and on! 🙄🙄🤦🏽‍♀️,connectivity,device_troubleshooting,0.3517,False
+35,@AppleSupport I hate iOS 11 with a passion! It is garbage!!! Fix it now!! My Health app doesn’t refresh now. Can you just fix it already?!? I wish I had purchased an android. I have never been so disappointed with Apple 😡 #ios11sucks,app_service_issue,purchase_store_refund,0.4081,False
+36,"@AppleSupport we are not getting response from apple India wrote two mails , i hvent expect such from apple inc.",general_or_insufficient_context,purchase_store_refund,0.3961,False
+37,"@AppleSupport Very unhappy with the experience after the ios 11 update. Phone's getting stuck, screen rotate not working at times, keypad not working while adding calls :( iphone never used to give surprises like these in the past!",purchase_store_refund,app_service_issue,0.644,False
+38,@AppleSupport Thanks 😄,general_or_insufficient_context,software_update,0.3381,False
+39,"@AppleSupport my timer and alarms won’t work. When I set a timer, it counts down and just disappears. And alarms won’t even notify me.",account_security,device_troubleshooting,0.315,False
+40,@115858 please fix this I️ can’t handle it.,apple_music_media,device_troubleshooting,0.3735,False
+41,@AppleSupport Check: Latest iTunes ☑️ Reiliable Wi-fi ☑️. Have iTunes unknown error ❌ 0xE8000013 wen trying 2activate via iTunes! Still server unreachable,device_troubleshooting,apple_music_media,0.3132,False
+42,@187675 @AppleSupport Thank you. You should move that button back to Display &amp; Brightness where it used to be &amp; makes more sense. #buried,general_or_insufficient_context,device_troubleshooting,0.4625,False
+43,"@AppleSupport I’m now on my second I watch, and have tried the reset&amp;restart my phone and I watch etc and still not solved any problems",software_update,device_troubleshooting,0.7218,False
+44,@AppleSupport it don’t work!!!,connectivity,software_update,0.4002,False
+45,@AppleSupport It’s not hidden. I’ve checked,battery_power,apple_music_media,0.6489,False
+46,"@AppleSupport Please note that I have also lost numbers that were saved in my note pad app which were crucial to me such as WiFi access, modem reset pins, bank accounts etc. Kindly assist urgently. Regards Thabo, from South Africa (2)",app_service_issue,connectivity,0.3839,False
+47,@AppleSupport I had not reset my device since I updated to iOS 11. Thanks for the tip.,device_troubleshooting,how_to_settings,0.5374,False
+48,@AppleSupport USA,how_to_settings,connectivity,0.5834,False
+49,@AppleSupport neither the flashlight or camera lock screen buttons work on the #iPhoneX #iOS 11.1,purchase_store_refund,device_troubleshooting,0.8884,False
+50,@524124 Nah @115858 needs to fix it ASAP 💀,general_or_insufficient_context,device_troubleshooting,0.3379,False
+51,@115858 where the hell have all my photos gone from my phone?!! Just updated and 2 years of photos have vanished??!!!,software_update,apple_music_media,0.407,False
+52,@AppleSupport Hi I’ve just installed a new hard drive in my MacBook and on opening Safari it re-opens with the last used search criteria in the bar / do you know how I get it to re-open with a clean search bar pls ?,device_troubleshooting,how_to_settings,0.4305,False
+53,@115858 fix this I️,battery_power,device_troubleshooting,0.4544,False
+54,Hey @AppleSupport iOS 11 it’s so pretty but is ñor functional. Decrease the battery and is too slow to open any app.,connectivity,software_update,0.4436,False
+55,@AppleSupport I DMed you the details.,apple_music_media,software_update,0.4225,False
+56,Ummmm @AppleSupport my I️ are not i suddenly!!!,app_service_issue,app_service_issue,0.2689,True
+57,@AppleSupport Here we go again trying to add a song to my library and it won’t work😑😑😑😑,account_security,apple_music_media,0.6344,False
+58,"@AppleSupport Okay, I really don’t know how this happened. I did not try something else, but the tracks are magically in order now. 😄 I have nothing to do with this &amp; don’t know how this happened, but I ain’t complaining. 🤷🏻‍♂️😊 https://t.co/DUazRhboB9",purchase_store_refund,how_to_settings,0.3931,False
+59,"Do they even sell replacement screens for iPhone 5s? 😂 I feel like my phone is so old, but I can't afford to replace it. @applesupport",how_to_settings,purchase_store_refund,0.5947,False
+60,"@AppleSupport Yes, no, and the US, respectively. :)",device_troubleshooting,purchase_store_refund,0.2313,False
+61,@AppleSupport That sort of misses my point. I don't want to need iCloud at all. I'm often without data and want to not need data to access my stuff.,software_update,how_to_settings,0.3951,False
+62,"@AppleSupport Are we gonna get the option of Mobile Hotspot in next update of ios, or should we downgrade to Android?",battery_power,connectivity,0.2979,False
+63,@AppleSupport When i txt apple users i will receive the message as a iMessage and a txt me.,connectivity,device_troubleshooting,0.2812,False
+64,@AppleSupport Smh,device_troubleshooting,software_update,0.5192,False
+65,@AppleSupport No. Fix your shit. The new update is shit. Bye. Im going to android,general_or_insufficient_context,device_troubleshooting,0.349,False
+66,@AppleSupport i have the 6s plus and my battery is always going out sooo fast,apple_music_media,battery_power,0.8845,False
+67,@AppleSupport - when does your Bluewater store re-open please?,app_service_issue,purchase_store_refund,0.4613,False
+68,@AppleSupport Is this link relevant to iPhone X? @115858 New Zealand page has different prices and there is no mention of backside glass panel.,purchase_store_refund,device_troubleshooting,0.3714,False
+69,@AppleSupport Why can’t I️ see any emojis with the new update 🤬🤬🤬,account_security,battery_power,0.3178,False
+70,@AppleSupport 11.1,how_to_settings,software_update,0.3538,False
+71,@AppleSupport you asked me to send a DM. Don’t know what that is. Here’s a solid picture of what is happening https://t.co/7M9EQ02Jqo,general_or_insufficient_context,purchase_store_refund,0.4765,False
+72,@AppleSupport But i can take from Dubai ?,software_update,purchase_store_refund,0.5284,False
+73,This just happened; simply snapped while I was unplugging it from my iPhone. A friend told me you could help? @AppleSupport @115858 https://t.co/yTw9mkSFMf,device_troubleshooting,purchase_store_refund,0.2899,False
+74,@AppleSupport If I️ wanna move app from one side to the other? When I️ drag them and finally drop the app where I️ want it goes back to where it was.,battery_power,battery_power,0.2426,True
+75,I’m so sick of @115858 ever since the new iPhone came out mine has been acting up I can’t even update my fucking apps 😒😤,connectivity,device_troubleshooting,0.5035,False
+76,"@AppleSupport God I’ve been tweeting constantly as have others. I can DM but it’s just a shitty design for your new keyboard. I type letters as a,ways and the stupid numbers appear instead.",apple_music_media,device_troubleshooting,0.5839,False
+77,"@AppleSupport Maybe for about 3 months, it used to be pretty far apart like hours apart now it feels like every 20 minutes or so. And i have an iPhone 7",app_service_issue,device_troubleshooting,0.2621,False
+78,Ever since the update my phone freezes at least twice a day 🙃🙃 @115858,purchase_store_refund,device_troubleshooting,0.6127,False
+79,@AppleSupport No not using low power mode. Seeing many others having same problem as I am with slow glitchy phone. When will this update be fixed?,account_security,software_update,0.4827,False
+80,Still having battery charge issues @115858 @AppleSupport #sodisappointed,how_to_settings,battery_power,0.6783,False
+81,@AppleSupport iOS 11.0.2,device_troubleshooting,device_troubleshooting,0.8033,True
+82,"@AppleSupport Difficult to organise the photos by app wise like WhatsApp and Facebook etc,,,",general_or_insufficient_context,software_update,0.2658,False
+83,@AppleSupport Up to date https://t.co/xPAT6FApBS,software_update,device_troubleshooting,0.3176,False
+84,@AppleSupport New bug? “it” gets autocorrected to “I.T”. Or is it just me? #iOS11,battery_power,software_update,0.3408,False
+85,@AppleSupport Do you know why I am unable to see the software on iPhone 8plus? I have my old phone 6s on 11.0.2 and I can’t use my backup https://t.co/wFY6NUTxQU,connectivity,software_update,0.4246,False
+86,Can we get some help with this? @AppleSupport @115858 i can’t type a capital i https://t.co/CC6wu0XkVv,apple_music_media,device_troubleshooting,0.297,False
+87,"@AppleSupport Hello , I've got this problem , what should I do? , I couldn't stop finding my iPhone https://t.co/m2PrnX9F9c",app_service_issue,device_troubleshooting,0.3509,False
+88,@AppleSupport why can’t I️ use I️?!? https://t.co/DrohhYBMSH,purchase_store_refund,purchase_store_refund,0.2212,True
+89,My phone really fucking up😡😡😡😡😡😡😡 hanging up in the middle of my ft calls WTF @AppleSupport,account_security,device_troubleshooting,0.5444,False
+90,Yo this update ruined my phone... @115858,how_to_settings,device_troubleshooting,0.393,False
+91,I️ wanna know why my phone has question marks replacing my I’s...? @AppleSupport,software_update,software_update,0.4859,True
+92,@296627 @115858 Yup! My phone used to last all day now I charge it about 3 times.,device_troubleshooting,battery_power,0.5666,False
+93,@AppleSupport It happened outside as well. It seems to be happening a lot and only since the iOS update.,battery_power,device_troubleshooting,0.3024,False
+94,@AppleSupport When I’m on him screen an nothin is being used I still just adjust he headphones volume.,connectivity,apple_music_media,0.4114,False
+95,@AppleSupport I have wifi,apple_music_media,connectivity,0.7276,False
+96,@AppleSupport @424988 I also have iPhone 7 and the app is still down. 😟,app_service_issue,purchase_store_refund,0.2451,False
+97,@AppleSupport I cannot change my Apple ID as the verification code is being sent to a closed email address. Help!,purchase_store_refund,account_security,0.7552,False
+98,@AppleSupport iOS 11.0.3,account_security,software_update,0.9059,False
+99,@AppleSupport i always used control center. i don’t have a need to use bluetooth connectivity so it’s disheartening when i find it on and using battery needlessly. i’ll try going to settings to see if that will fix the repetitive issue.,how_to_settings,how_to_settings,0.671,True
+100,@AppleSupport @115858 are you guys waiting to reply until my warranty expires? #whatsup #iphonex #iPhone8 #iPhone #iphone7 #apple,general_or_insufficient_context,purchase_store_refund,0.716,False
+101,@AppleSupport Thanks!,device_troubleshooting,software_update,0.3243,False
+102,@AppleSupport Its not a battery issue you allways make this changes on the updates to disturbe the oldes phones and make us tu buy new one 🤨,software_update,software_update,0.4024,True
+103,"@AppleSupport Hi, so I had 6k+ pictures got deleted. Yes there's 230 in the recently deleted but those are the only ones remained. https://t.co/RfjENfG2zj",battery_power,apple_music_media,0.3167,False
+104,@AppleSupport Still doesn’t work,connectivity,device_troubleshooting,0.5515,False
+105,@AppleSupport Thank you for your response! Please see your DMs.,general_or_insufficient_context,purchase_store_refund,0.2739,False
+106,@118936 @AppleSupport CAN YAL PLEASE FIX THIS SHIT I️ &lt;— PLEASE 😒😒😒😒,apple_music_media,device_troubleshooting,0.3071,False
+107,@AppleSupport Done,app_service_issue,how_to_settings,0.3791,False
+108,I hope @115858 honors my earphones warranty. My left earphone is malfunctioning,purchase_store_refund,purchase_store_refund,0.5411,True
+109,@AppleSupport Done 👍🏼,account_security,purchase_store_refund,0.267,False
+110,@AppleSupport So why is my phone doing this,general_or_insufficient_context,software_update,0.2797,False
+111,@AppleSupport I am on an iPhone 7 as well,device_troubleshooting,device_troubleshooting,0.3989,True
+112,@AppleSupport Thank you!,software_update,software_update,0.3577,True
+113,"@AppleSupport so my iPhone wont connect to iTunes on my laptop, what should I do ?",battery_power,apple_music_media,0.5106,False
+114,"The least you can do is give us a new update to get rid of these boxes, or a new phone will do @AppleSupport",connectivity,purchase_store_refund,0.3672,False
+115,@AppleSupport I’m just trying to update twitter and the App Store is asking me to do this so I enter my CVV and it get’s declined https://t.co/fXW4XM1tre,apple_music_media,purchase_store_refund,0.3191,False
+116,@AppleSupport why does my IPhone 7+ keep draining out fast ever since the iOS 11 update came out???,app_service_issue,software_update,0.5205,False
+117,"@115858, the “i” problem is... sorta fixed...? https://t.co/4lMkNxJ0yh",purchase_store_refund,device_troubleshooting,0.4344,False
+118,@AppleSupport It happen atleast twice in a week since the phone is 2weeks old. Currently am using ios 11.0.3. And also device is getting heat to core.,general_or_insufficient_context,software_update,0.3215,False
+119,"@AppleSupport iOS 11.2 supposedly adds Apple Pay to iMessage, can not seem to figure out how to enable it for the life of me. Halp! #iOS112 #ApplePay #iMessage",account_security,how_to_settings,0.7584,False
+120,@AppleSupport Yesterday or day before.,how_to_settings,device_troubleshooting,0.525,False
+121,@115858 why does my iPhone 7 Plus keep getting stuck in landscape after using YouTube? New since 11 update. https://t.co/G6htQNXSYM,device_troubleshooting,device_troubleshooting,0.6296,True
+122,this update has me messed up @115858 why is my “I️” turned into A with a box🙄,software_update,device_troubleshooting,0.3769,False
+123,@AppleSupport 11.03 and still my own ringtones will not work 😱😭,battery_power,device_troubleshooting,0.243,False
+124,@AppleSupport since the release of iOS 11 my iPhone 5s battery drains alot. In the morning it is 100% but when i get out of school its 3%,connectivity,battery_power,0.4491,False
+125,@498613 @AppleSupport I don’t think it worked for me 🤔,apple_music_media,purchase_store_refund,0.2817,False
+126,@AppleSupport That’s not the issue. The app is find. Just double showing in location settings as per my last screenshot.,app_service_issue,device_troubleshooting,0.6899,False
+127,"@AppleSupport Hi, my friend bought iphone x from italian apple site and now he need an invoice (he has a Vat italian code) instead of a simple receipt. Is it possible to request? How? Thanks for your reply!",purchase_store_refund,purchase_store_refund,0.7169,True
+128,Can someone at @AppleSupport explain why this WiFi/Bluetooth glitch is still happening almost 3 weeks later?! So amateur 🤦🏻‍♂️,account_security,connectivity,0.6453,False
+129,"@115858 iphone 📱 is not as before. Not reliable as before and not as good. Freezes, WiFi and Bluetooth on randomly. WTF total BS",how_to_settings,connectivity,0.635,False
+130,@AppleSupport I did it! Did it work?? 🙈🙈,general_or_insufficient_context,software_update,0.4689,False
+131,@115858 when tf you gonna fix this shit I️,device_troubleshooting,device_troubleshooting,0.3959,True
+132,@AppleSupport Messenger. Used to be that the posts I haven't read rise to the top. They are not doing that now. iOS11 on 7+,software_update,device_troubleshooting,0.2116,False
+133,@AppleSupport gave us 2+ updates for ios11. My piece of shit still resets when I hit home from lock screen. I wanna smash it on the ground,battery_power,device_troubleshooting,0.8201,False
+134,@AppleSupport Yes. It normally rotates freely. It just gets “confused” sometimes. Especially locking the phone in one orientation and opening in another,connectivity,device_troubleshooting,0.7433,False
+135,@AppleSupport I do. How can I restore them onto my phone?,apple_music_media,apple_music_media,0.2446,True
+136,@AppleSupport Why do I️ need to do this at all? Can’t you guys release a patch to fix it?,app_service_issue,device_troubleshooting,0.5079,False
+137,@AppleSupport Thank You.,general_or_insufficient_context,purchase_store_refund,0.3529,False
+138,"@AppleSupport ios 11 made my battery look horrible, and it's catching a lot",purchase_store_refund,software_update,0.2944,False
+139,@AppleSupport It’s continuously dying at 20% or 25% and it doesn’t turn back on . the Apple sign will flash as if it’s turning back on for 15 min at a time and then it’ll finally come back on . My maps also doesn’t follow my actions and my phone dies ridiculously fast,account_security,purchase_store_refund,0.4903,False
+140,"You’ve done it again @115858 @AppleSupport, another update to the #iPhone that just makes it even slower &amp; more glitchy…",how_to_settings,device_troubleshooting,0.3463,False
+141,@AppleSupport Done!,general_or_insufficient_context,device_troubleshooting,0.2346,False
+142,@AppleSupport have you worked out why iOS 11 is draining my battery?,device_troubleshooting,software_update,0.5403,False
+143,"@115858 since you made the 10.13 update, haven't been able to restore a full time machine or a full disk image. nice one, you broke 2 backups",software_update,device_troubleshooting,0.2208,False
+144,@AppleSupport @501930 do this!!,battery_power,device_troubleshooting,0.4088,False
+145,"@115858 Why is it so hard to turn off wifi/BT in OS11? I wish i could dump a tub of discarded shrimp shells on the idiot who thought it's a ""feature"" to keep em running when you turn 'em off in CP. Many work in areas that restrict wifi/BT! Can't buy new iphone until this is fixed!",connectivity,how_to_settings,0.5161,False
+146,@AppleSupport Old iPhone has since been erased and traded in. So not sure if music exists anymore.,apple_music_media,apple_music_media,0.3967,True
+147,@AppleSupport Yup,app_service_issue,how_to_settings,0.3636,False
+148,Any problem reported last hours about #iPhone or #iOS? My #iPhone6 and my wife’s #iPhone7Plus got freezed on black screen for more than 3 hours at the same time! @AppleSupport I have restored both devices after sometime of trying and finaly lost messages! Can you explain this? https://t.co/dmVtEBZt0Z,purchase_store_refund,device_troubleshooting,0.583,False
+149,"@AppleSupport ,my iphone 6s+ , got freeze daily and apps get unresponsive ..it has been happing since installed ios 11",account_security,software_update,0.4677,False
+150,I was charging my phone and it still died on me... wtf y'all got going on @AppleSupport these iPhone batteries are ass,how_to_settings,battery_power,0.6273,False
+151,@AppleSupport Could you just get os 11.02 sorted battery time a disaster now 😡,device_troubleshooting,device_troubleshooting,0.5261,True
+152,@AppleSupport Yes. Should I erase &amp; restore?,software_update,device_troubleshooting,0.5621,False
+153,"@AppleSupport Google Chrome and Safari. Yes videos, but the screen wavers and flickers sometimes just on the desktop or non-video apps",battery_power,device_troubleshooting,0.454,False
+154,@AppleSupport No,connectivity,device_troubleshooting,0.6455,False
+155,@AppleSupport Sent.,general_or_insufficient_context,battery_power,0.2556,False
+156,@AppleSupport Overall crappy performance. 😶,apple_music_media,battery_power,0.4358,False
+157,My @115858 AirPods are three stories away and nowhere near my ears. Why does my phone keep directing audio to them? I’m tired of this crap.,app_service_issue,apple_music_media,0.4672,False
+158,and @AppleSupport why does my phone always autocorrect “i” to I️ ?????? #fixit,purchase_store_refund,device_troubleshooting,0.4967,False
+159,@AppleSupport IOS 11.0.3,account_security,app_service_issue,0.3215,False
+160,@AppleSupport The encryption password is forgotten.,how_to_settings,account_security,0.5014,False
+161,Anyone else has the issue with their #iphone where “i” gets replaced with a question mark box? Can @115858 help a woman out 😭,device_troubleshooting,device_troubleshooting,0.4667,True
+162,"@AppleSupport 11.0.3 and I have the 6S, it’s just very odd. All these things are in the control panel and they turn on or off by themselves",software_update,connectivity,0.3831,False
+163,Why does my battery on my iPhone 6 drain rapidly now since I did the latest update @AppleSupport ! Not happy that iphone is not reliable,battery_power,battery_power,0.6662,True
+164,@AppleSupport Do Not Disturb While Driving doesn’t recognize my car Bluetooth as a vehicle. Anything I can do to change that?,connectivity,connectivity,0.297,True
+165,@AppleSupport Un proceso que debería ser automático tarda como mínimo 5 días hábiles. Sorprendido que un proceso así no sea automático y lo reciba en el mismo momento. La tecnología parece que no ha llegado a la atención al cliente. Tan importante debería ser la venta como la postventa,general_or_insufficient_context,connectivity,0.3073,False
+166,@AppleSupport I hate you for that. But yea I have restarted my iPhone,apple_music_media,device_troubleshooting,0.5478,False
+167,@AppleSupport this is done when the phone is idle.,app_service_issue,device_troubleshooting,0.5249,False
+168,@AppleSupport @124423 New watch update this week yet this issue is still not resolved? Any updates on a fix?,purchase_store_refund,how_to_settings,0.4689,False
+169,@AppleSupport how you gonna just not answer calls all day? Horrible service.,account_security,how_to_settings,0.2794,False
+170,@AppleSupport Thank you. That's great. Is there anyway to check that the back up is still there? As whoever took my phone gained access to my email acct and removed my device from find my iPhone before I could erase my device. Or will the backup be safe?,how_to_settings,how_to_settings,0.3975,True
+171,@AppleSupport Thank you 😌,general_or_insufficient_context,how_to_settings,0.5934,False
+172,@115858 hey that error with that “I” has to go. Please fix. Thank you! Long time customer 😎✊🏾,device_troubleshooting,device_troubleshooting,0.3083,True
+173,@AppleSupport my iPhone 7 is messed up with the new iOS 11 upgrade you provided. Calls go to voicemail directly . Fix this ASAP 😡😡😡😡,software_update,device_troubleshooting,0.3064,False
+174,@AppleSupport Absolutely 👌,general_or_insufficient_context,purchase_store_refund,0.2897,False
+175,"Dear @115858, before updating to iOS 11 I never ran out of battery on my iPhone, now after updating I run out of battery every other week.",battery_power,battery_power,0.4319,True
+176,@AppleSupport my phone is totally frozen. Won't respond to any touch. Can't locate the serial number to chat what do I do?,connectivity,device_troubleshooting,0.4836,False
+177,"Yo, @115858 what’s up with this update? Got my phone looking like it’s on android status!",apple_music_media,device_troubleshooting,0.5238,False
+178,@AppleSupport I need your help,general_or_insufficient_context,device_troubleshooting,0.4253,False
+179,@AppleSupport iOS 11.03,purchase_store_refund,how_to_settings,0.4379,False
+180,"Can’t wait to get an Android. Watching my iPhone battery life vanish by a percentage point every 15-30 seconds. Background refresh turned off. Data for almost all apps turned off. Great work, @115858. Nice “I” glitch, too, geniuses.",account_security,battery_power,0.672,False
+181,@AppleSupport dm sent,general_or_insufficient_context,device_troubleshooting,0.3265,False
+182,@AppleSupport It’s a safety concern and I need to be heard,device_troubleshooting,purchase_store_refund,0.4307,False
+183,@AppleSupport It's an iPhone 6S plus 64 gb,general_or_insufficient_context,device_troubleshooting,0.2827,False
+184,@AppleSupport mean the i turns to A ?,software_update,purchase_store_refund,0.293,False
+185,"I fixed the I thing once before, I’m not doing it again. Your move, @115858",battery_power,device_troubleshooting,0.3287,False
+186,"High Sierra 😩😩😩. I'm trynna get work done, @AppleSupport Why is this OS taking all daybto install?",connectivity,device_troubleshooting,0.4012,False
+187,@AppleSupport Yes I am.,apple_music_media,battery_power,0.7097,False
+188,"@AppleSupport Dear @AppleSupport if a real person reads this, he/she would understand from my previous tweet, that I already tried the steps. #nohelp",app_service_issue,purchase_store_refund,0.1843,False
+189,@AppleSupport @595404 Mine still messes up. So when are they gonna do an update to fix this???,purchase_store_refund,device_troubleshooting,0.337,False
+190,Meu iPhone está baixando 2% de bateira a cada um minuto usado! PQP @115858 @AppleSupport,account_security,device_troubleshooting,0.2529,False
+191,"@AppleSupport It only seems to occur when I’m actually typing out the words, using voice to text produces the correct capitalization",device_troubleshooting,device_troubleshooting,0.3887,True
+192,Why does my “I” keep auto correcting to an A in a box and a question mark??? Wtf @115858,software_update,device_troubleshooting,0.3193,False
+193,@AppleSupport On the phone with a tech now - but this is a super troubling bug.,battery_power,device_troubleshooting,0.3458,False
+194,@115858 Who do you complain to when you are getting appalling service from an Apple Store?,connectivity,purchase_store_refund,0.6526,False
+195,@115858 My #iphonecase broken 😣 not even a year and it has snapped on the border. Any idea about the warranty of this product @AppleSupport?😉 https://t.co/Yq1Clmat1N,apple_music_media,purchase_store_refund,0.5812,False
+196,Twitter is smart... now can someone tell me why this happens when I️ try to type the letter “I️” @AppleSupport https://t.co/rA0QrHusrs,app_service_issue,device_troubleshooting,0.3975,False
+197,@AppleSupport 11.1,purchase_store_refund,apple_music_media,0.4142,False
+198,queria saber pra onde vai as fotos que eu salvo no wpp 🤷🏻‍♀️ @AppleSupport,account_security,device_troubleshooting,0.2049,False
+199,@AppleSupport I need your help,general_or_insufficient_context,purchase_store_refund,0.3675,False
+200,@115858 @AppleSupport,general_or_insufficient_context,purchase_store_refund,0.2485,False

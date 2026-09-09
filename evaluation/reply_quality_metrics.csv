@@ -1,0 +1,15 @@
+metric,value,n
+average_groundedness,4.075,40
+median_groundedness,5.0,40
+average_relevance,3.775,40
+median_relevance,5.0,40
+average_helpfulness,2.95,40
+median_helpfulness,4.0,40
+average_actionability,3.7,40
+median_actionability,4.0,40
+average_brand_alignment,4.375,40
+median_brand_alignment,5.0,40
+average_overall_quality,3.625,40
+median_overall_quality,4.0,40
+average_all_quality_dimensions,3.75,240
+human_escalation_accuracy,0.8,40

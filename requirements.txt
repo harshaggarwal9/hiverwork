@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+sentence-transformers
+faiss-cpu
+python-dotenv
+tqdm
+pyyaml
+openai
+joblib
+pytest
+duckdb

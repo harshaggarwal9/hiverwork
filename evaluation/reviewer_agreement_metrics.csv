@@ -1,0 +1,9 @@
+metric,n,reviewer1_mean,reviewer2_mean,exact_agreement,adjacent_agreement,mean_absolute_difference,cohen_kappa,weighted_kappa
+groundedness,40,4.075,4.8,0.75,0.75,0.725,0.248,0.333
+relevance,40,3.775,3.825,0.675,0.95,0.4,0.483,0.753
+helpfulness,40,2.95,3.425,0.625,0.925,0.525,0.476,0.654
+actionability,40,3.7,3.775,0.75,0.925,0.375,0.625,0.774
+brand_alignment,40,4.375,4.375,0.7,1.0,0.3,0.464,0.615
+overall_quality,40,3.625,3.825,0.575,0.875,0.6,0.385,0.623
+escalation_decision,40,0.8,0.8,1.0,1.0,0.0,1.0,
+all_quality_dimensions,240,3.75,4.004,0.679,0.904,0.487,,0.675

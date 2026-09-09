@@ -1,0 +1,37 @@
+metric,value
+evaluation_examples,200
+golden_set_size,200
+majority_macro_f1,0.0222
+tfidf_macro_f1,0.0928
+context_tfidf_macro_f1,0.1403
+context_agent_intent_accuracy,0.17
+context_agent_macro_f1,0.0928
+context_agent_weighted_f1,0.0954
+action_accuracy,0.33
+auto_handle_count,51
+escalate_count,149
+automation_coverage,0.255
+automation_precision,0.7647058823529411
+safe_automation_rate,0.195
+escalation_precision,0.18120805369127516
+escalation_recall,0.6923076923076923
+escalation_f1,0.2872340425531915
+reply_coverage,1.0
+mean_top1_retrieval_similarity,0.8399494999999998
+mean_max_top5_retrieval_similarity,0.8399494999999998
+reply_groundedness_mean,4.075
+reply_relevance_mean,3.775
+reply_helpfulness_mean,2.95
+reply_actionability_mean,3.7
+reply_brand_alignment_mean,4.375
+reply_overall_quality_mean,3.625
+reply_human_escalation_accuracy,0.8
+second_judge_weighted_kappa,0.675
+second_judge_escalation_kappa,1.0
+failure_mode_1,intent_misclassification: 166
+failure_mode_2,over_escalation: 22
+failure_mode_3,weak_retrieval_evidence: 2
+failure_mode_4,unsafe_automation: 1
+failure_mode_5,low_intent_confidence: 1
+final_intent_threshold,0.5
+final_retrieval_threshold,0.7

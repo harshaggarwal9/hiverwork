@@ -1,0 +1,25 @@
+project:
+  name: "hiver-ai-support-agent"
+
+data:
+  raw_path: "data/raw/twcs.csv"
+  processed_path: "data/processed"
+
+pipeline:
+  chunk_size: 100000
+
+threading:
+  max_thread_length: 20
+  min_messages: 2
+
+evaluation:
+  golden_size: 200
+  top_k: 5
+
+model:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+
+agent:
+  min_intent_confidence: 0.50
+  min_retrieval_score: 0.70
+  min_evidence_examples: 2

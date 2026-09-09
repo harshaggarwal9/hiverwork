@@ -1,0 +1,84 @@
+{
+  "software_update": {
+    "description": "Problems or questions related to iOS/software updates, including failed updates, bugs after updates, version-specific issues, and update workarounds.",
+    "examples": [
+      "My iPhone started freezing after the new iOS update",
+      "The latest update broke my keyboard",
+      "Which iOS version should I install?"
+    ]
+  },
+  "device_troubleshooting": {
+    "description": "Problems with Apple devices such as iPhone, iPad, or Apple Watch, including freezing, restarting, shutting down, screen, camera, speaker, or other device behavior.",
+    "examples": [
+      "My iPhone keeps shutting down",
+      "Apple Watch keeps restarting",
+      "My phone screen is frozen"
+    ]
+  },
+  "battery_power": {
+  "description": "Battery drain, battery health, charging, power consumption, overheating related to battery or power behavior.",
+  "examples": [
+    "My battery drains very quickly",
+    "How can I check my battery health?",
+    "My phone won't stay charged",
+    "My iPhone gets hot and loses battery quickly"
+  ]
+},
+  "connectivity": {
+    "description": "Wi-Fi, Bluetooth, cellular, roaming, or other device connectivity problems.",
+    "examples": [
+      "Bluetooth won't connect to my car",
+      "My iPhone won't connect to Wi-Fi",
+      "Cellular data stopped working"
+    ]
+  },
+  "apple_music_media": {
+    "description": "Apple Music and media-library issues, including playback, missing music, downloads, and music synchronization.",
+    "examples": [
+      "My Apple Music library disappeared",
+      "Songs won't play",
+      "My downloaded music disappeared after the update"
+    ]
+  },
+  "account_security": {
+    "description": "Apple ID/account access, password, verification, security, phishing, or suspicious-account activity.",
+    "examples": [
+      "I can't verify my Apple account",
+      "I forgot my Apple ID password",
+      "I received a suspicious Apple message"
+    ]
+  },
+  "purchase_store_refund": {
+    "description": "Apple Store purchases, returns, refunds, sales support, and purchase-related issues.",
+    "examples": [
+      "I want to return my purchase",
+      "Where is my refund?",
+      "I need help with something I bought from the Apple Store"
+    ]
+  },
+  "app_service_issue": {
+    "description": "Problems with a specific app, Apple service, or third-party service interaction where the issue is not primarily device, account, connectivity, or update related.",
+    "examples": [
+      "Spotify isn't working on my iPhone",
+      "This app keeps crashing",
+      "A service stopped working after the update"
+    ]
+  },
+  "how_to_settings": {
+    "description": "Questions asking how to configure a setting, enable/disable a feature, or follow an Apple-supported procedure.",
+    "examples": [
+      "How do I change this setting?",
+      "Where can I find my iOS version?",
+      "How do I enable iCloud Music Library?"
+    ]
+  },
+  "general_or_insufficient_context": {
+    "description": "Messages that cannot be reliably assigned to a specific support issue without additional context, including vague requests, acknowledgements, and conversational replies.",
+    "examples": [
+      "I need help",
+      "Yes",
+      "Thanks",
+      "Please help"
+    ]
+  }
+}
