@@ -360,8 +360,3 @@ report/HIVER_FINAL_REPORT.md
 The main design principle is:
 
 **Do not automate merely because a classifier is confident; automate when the intent, historical evidence, and response path are jointly strong enough.**
-
-```
-
-After pasting, click **Commit changes**.
-```
