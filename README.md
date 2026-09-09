@@ -1,4 +1,3 @@
-Yes — below is **plain Markdown exactly for GitHub's README editor**. Copy everything inside the code block and paste it into the README edit box.
 
 ````markdown
 # Hiver AI Support Agent — AppleSupport
