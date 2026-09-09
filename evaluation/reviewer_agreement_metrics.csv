@@ -1,9 +1,9 @@
 metric,n,reviewer1_mean,reviewer2_mean,exact_agreement,adjacent_agreement,mean_absolute_difference,cohen_kappa,weighted_kappa
-groundedness,40,4.4,4.8,0.7,0.95,0.4,0.208,0.398
-relevance,40,4.4,3.825,0.575,0.8,0.825,0.259,0.391
-helpfulness,40,3.25,3.425,0.425,0.75,0.925,0.206,0.333
-actionability,40,3.375,3.775,0.125,0.75,1.25,0.046,0.253
-brand_alignment,40,4.7,4.375,0.675,0.95,0.375,0.279,0.539
-overall_quality,40,3.5,3.825,0.25,0.775,1.025,0.126,0.3
-escalation_decision,40,0.9,0.8,0.8,0.8,0.2,0.231,
-all_quality_dimensions,240,3.938,4.004,0.458,0.829,0.8,,0.41
+groundedness,36,4.389,4.417,0.806,1.0,0.194,0.6,0.752
+relevance,38,4.368,4.368,0.789,1.0,0.211,0.588,0.784
+helpfulness,38,3.211,3.605,0.579,0.868,0.553,0.318,0.482
+actionability,38,3.342,3.553,0.684,0.947,0.368,0.46,0.614
+brand_alignment,38,4.684,4.605,0.947,0.974,0.079,0.782,0.877
+overall_quality,38,3.474,3.632,0.737,0.947,0.316,0.543,0.651
+escalation_decision,36,0.889,0.917,0.972,0.972,0.028,0.842,
+all_quality_dimensions,226,3.907,4.027,0.757,0.956,0.288,,0.757

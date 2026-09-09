@@ -4,18 +4,18 @@ golden_set_size,200
 majority_macro_f1,0.0222
 tfidf_macro_f1,0.0928
 context_tfidf_macro_f1,0.1403
-context_agent_intent_accuracy,0.17
+context_agent_intent_accuracy,0.31
 context_agent_macro_f1,0.0928
 context_agent_weighted_f1,0.0954
-action_accuracy,0.33
+action_accuracy,0.305
 auto_handle_count,51
 escalate_count,149
 automation_coverage,0.255
-automation_precision,0.7647058823529411
-safe_automation_rate,0.195
-escalation_precision,0.18120805369127516
-escalation_recall,0.6923076923076923
-escalation_f1,0.2872340425531915
+automation_precision,0.9803921568627451
+safe_automation_rate,0.25
+escalation_precision,0.0738255033557047
+escalation_recall,0.9166666666666666
+escalation_f1,0.13664596273291924
 reply_coverage,1.0
 mean_top1_retrieval_similarity,0.8399494999999998
 mean_max_top5_retrieval_similarity,0.8399494999999998
@@ -26,8 +26,8 @@ reply_actionability_mean,3.375
 reply_brand_alignment_mean,4.7
 reply_overall_quality_mean,3.5
 reply_human_escalation_accuracy,0.9
-second_judge_weighted_kappa,0.41
-second_judge_escalation_kappa,0.231
+second_judge_weighted_kappa,0.757
+second_judge_escalation_kappa,0.842
 failure_mode_1,intent_misclassification: 166
 failure_mode_2,over_escalation: 22
 failure_mode_3,weak_retrieval_evidence: 2
