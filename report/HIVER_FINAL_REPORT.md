@@ -1,138 +1,115 @@
-# Hiver AI Support Agent — AppleSupport
+# Hiver AI Support Agent — Final Report
 
-AI customer-support agent built for the Hiver SDE Intern take-home assignment using the Customer Support on Twitter dataset.
+## 1. Executive Summary
 
-## Problem
+This project builds an evidence-grounded customer-support agent for the Hiver SDE Intern take-home assignment using the Customer Support on Twitter dataset.
 
-For an incoming customer message, the system:
+The system focuses on one support brand, AppleSupport, and performs four core tasks:
 
-1. Reconstructs conversation context.
-2. Classifies the customer intent.
-3. Retrieves similar historical AppleSupport interactions.
-4. Decides whether to auto-handle or escalate.
-5. Generates a historically grounded reply for auto-handled cases.
+1. reconstruct conversation context,
+2. classify customer intent,
+3. retrieve relevant historical support interactions,
+4. decide between auto-handling and escalation while generating a historically grounded reply.
 
-## Architecture
+The final system uses a compact 10-intent taxonomy, a context-aware TF-IDF classifier, FAISS retrieval over historical support examples, and conservative evidence-gated automation.
 
-```text
-Incoming Tweet
-      |
-      v
-Thread Reconstruction
-      |
-      v
-Context-aware Intent Classification
-      |
-      v
-Historical Retrieval (FAISS)
-      |
-      v
-Evidence + Confidence
-      |
-      v
-Escalation Decision
-    /       \
-Auto-handle  Escalate
-   |            |
-   v            v
-Grounded      Human
-Reply         Support
-```
+The strongest product signal is selective automation rather than raw classifier accuracy. The final agent reaches 25.50% automation coverage with 76.47% automation precision and a 19.50% safe automation rate.
 
-## Dataset
+The main weakness is intent classification: final intent accuracy is 17.0%. This is explicitly reported as a central limitation rather than hidden behind downstream metrics.
 
-Dataset: Customer Support on Twitter (Kaggle)
+## 2. Problem Framing
 
-Selected brand: **AppleSupport**
+A support agent should not simply produce plausible text. It should determine whether the incoming customer request can be safely handled automatically and ground any reply in evidence from previous support interactions.
 
-Expected local dataset path:
+The system therefore separates:
 
-```text
-data/raw/twcs.csv
-```
+- intent understanding,
+- historical evidence retrieval,
+- reply generation,
+- automation versus escalation.
 
-The raw dataset and large generated model artifacts are intentionally excluded from Git.
+The automation decision is deliberately conservative. A confident prediction without sufficient historical support evidence is not treated as sufficient for automation.
 
-## Setup
+## 3. Dataset and Brand Selection
 
-```bash
-python -m venv .venv
-```
+The project uses the Customer Support on Twitter dataset.
 
-Windows:
+Dataset profiling produced:
 
-```powershell
-.venv\Scripts\Activate.ps1
-```
+- 2,811,774 tweets,
+- 702,777 unique authors,
+- 2,017,439 tweets with response links,
+- dates spanning May 2008 through December 2017.
 
-Install dependencies:
+AppleSupport was selected because it provided a large and coherent support corpus.
 
-```bash
-pip install -r requirements.txt
-```
+AppleSupport data contained:
 
-## Reproduce the evaluation
+- 106,860 AppleSupport tweets,
+- 143,518 related tweets,
+- 81,391 reconstructed valid threads,
+- 228,380 total thread messages.
 
-The repository contains the numbered scripts used for the full pipeline.
+Immediate customer-to-support examples and context-aware examples were then constructed from these threads.
 
-The main stages are:
+## 4. Conversation Reconstruction
 
-```text
-01  Profile dataset
-02  Identify support brands
-03  Reconstruct AppleSupport threads
-04  Build support examples
-05  Discover candidate intents
-06  Review intents
-07  Build context-aware examples
-08  Create golden evaluation set
-09  Apply annotations
-10  Prepare temporal train/dev split
-11  Train TF-IDF baseline
-12  Build FAISS retrieval index
-13  Evaluate retrieval
-17  Train context-aware classifier
-18  Audit golden labels
-19  Run majority baseline
-20  Run final context-aware agent
-21  Analyze escalation thresholds
-22  Update thresholds
-23  Set final balanced thresholds
-24  Prepare reply evaluation
-25  Calculate reply quality
-26  Prepare second judge
-27  Calculate judge agreement
-28  Failure analysis
-29  Final metric consolidation
-```
+Twitter support conversations were reconstructed using response relationships between tweets.
 
-After the required dataset and generated intermediate artifacts are available, the final evaluation can be reproduced with:
+For context-aware examples, up to four previous messages were included.
 
-```bash
-python scripts/20_update_agent_context.py
-python scripts/24_prepare_reply_evaluation.py
-python scripts/25_calculate_reply_quality.py
-python scripts/26_prepare_reviewer2.py
-python scripts/27_calculate_reviewer_agreement.py
-python scripts/28_failure_analysis.py
-python scripts/29_finalize_metrics.py
-```
+This decision was intended to preserve enough conversational information to resolve short follow-ups such as:
 
-The complete dataset-processing pipeline is documented by the numbered scripts under `scripts/`.
+- "Yes I am."
+- "Will do."
+- "Should I erase & restore?"
+- "I had not reset my device."
 
-## Final configuration
+These messages can be impossible to classify reliably without their preceding customer-support context.
 
-```text
-Minimum intent confidence: 0.50
-Minimum retrieval similarity: 0.70
-Minimum evidence examples: 2
-Top-K retrieval: 5
-Embedding model: sentence-transformers/all-MiniLM-L6-v2
-```
+## 5. Intent Taxonomy
 
-## Results
+The final taxonomy contains 10 data-derived intents:
 
-### Intent classification
+1. `software_update`
+2. `device_troubleshooting`
+3. `battery_power`
+4. `connectivity`
+5. `apple_music_media`
+6. `account_security`
+7. `purchase_store_refund`
+8. `app_service_issue`
+9. `how_to_settings`
+10. `general_or_insufficient_context`
+
+The final fallback category is important because many support tweets are short, ambiguous, or insufficiently contextualized.
+
+## 6. Evaluation Design
+
+A chronological split was used to reduce temporal leakage.
+
+Training set:
+
+- 96,723 examples
+
+Development set:
+
+- 24,181 examples
+
+Date boundaries:
+
+- training: 2016-03-04 to 2017-11-17
+- development: 2017-11-17 to 2017-12-03
+
+A 200-example golden evaluation set was also constructed.
+
+A separate 40-case sample was used for reply-quality evaluation.
+
+An important limitation is that the golden annotations and reply-quality ratings were AI-assisted rather than independently human-labelled. Therefore, these results should be interpreted as assisted development/evaluation evidence rather than as a fully independent human benchmark.
+
+## 7. Baselines
+
+Three intent-classification baselines were evaluated.
 
 | Model | Macro-F1 |
 |---|---:|
@@ -140,105 +117,56 @@ Embedding model: sentence-transformers/all-MiniLM-L6-v2
 | TF-IDF + Logistic Regression | 0.0928 |
 | Context-aware TF-IDF + Logistic Regression | 0.1403 |
 
-### Final agent
+The context-aware model improves on the text-only TF-IDF baseline by:
 
-| Metric | Result |
-|---|---:|
-| Intent accuracy | 17.0% |
-| Action accuracy | 33.0% |
-| Auto-handle coverage | 25.5% |
-| Automation precision | 76.47% |
-| Safe automation rate | 19.5% |
+- 0.0475 absolute Macro-F1,
+- 51.21% relative improvement.
 
-The 76.47% automation precision must be interpreted together with its 25.5% coverage.
+This supports the engineering decision to preserve conversational context.
 
-### Reply quality
+## 8. Retrieval System
 
-| Dimension | Score / 5 |
-|---|---:|
-| Groundedness | 4.075 |
-| Relevance | 3.775 |
-| Helpfulness | 2.950 |
-| Actionability | 3.700 |
-| Brand alignment | 4.375 |
-| Overall | 3.625 |
+Historical support examples are embedded with:
 
-Second-judge agreement:
+`sentence-transformers/all-MiniLM-L6-v2`
 
-- Exact agreement: 67.9%
-- Adjacent agreement: 90.4%
-- Weighted kappa: 0.675
+A FAISS inner-product index is constructed over normalized embeddings.
 
-The judges were AI-assisted rather than independent human reviewers.
+Configuration:
 
-## Golden evaluation set
+- indexed examples: 96,723
+- embedding dimension: 384
+- Top-K: 5
+- automation retrieval threshold: 0.70
 
-The evaluation set contains **200 examples**.
+The retrieval layer is intended to provide historical evidence before automated handling.
 
-The annotations were AI-assisted rather than fully independent human labels, which is an important limitation of the current evaluation.
+Retrieval similarity is not treated as a substitute for independent human relevance judgement; it is used as an evidence signal for the agent.
 
-## Failure analysis
+## 9. Final Agent
 
-The main failure mode was intent misclassification.
+The final context-aware agent uses:
 
-Other observed failures:
+- minimum intent confidence: 0.50,
+- minimum retrieval similarity: 0.70,
+- minimum historical evidence examples: 2,
+- Top-K retrieval: 5.
 
-- over-escalation
-- weak retrieval evidence
-- unsafe automation
-- low intent confidence
-- occasional low-helpfulness replies
+Sensitive intents such as account/security and purchase/refund are escalated conservatively.
 
-See:
+The basic decision principle is:
 
 ```text
-evaluation/failure_analysis.csv
-evaluation/failure_analysis_summary.txt
-```
+Strong intent evidence
+        +
+Strong historical evidence
+        +
+Safe intent category
+        |
+        v
+   Auto-handle
 
-## Tests
-
-Run:
-
-```bash
-pytest -q
-```
-
-Expected current result:
-
-```text
-5 passed
-```
-
-## Repository structure
-
-```text
-hiver/
-├── configs/
-├── evaluation/
-├── notebooks/
-├── report/
-├── scripts/
-├── src/
-├── tests/
-├── requirements.txt
-├── pytest.ini
-├── .env.example
-├── .gitignore
-└── README.md
-```
-
-## Limitations
-
-The current evaluation has two important limitations:
-
-1. Golden annotations were AI-assisted rather than independently hand-labelled by humans.
-2. The second judge was also AI-assisted, so the reported agreement is not human-vs-LLM agreement.
-
-The current classifier is also weakly labelled and remains the main technical bottleneck.
-
-## Detailed report
-
-See:
-
-`report/HIVER_FINAL_REPORT.md`
+Otherwise
+        |
+        v
+     Escalate

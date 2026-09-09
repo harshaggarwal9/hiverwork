@@ -23,17 +23,17 @@ Escalation F1:            0.2872
 Reply coverage:           100.00%
 
 REPLY QUALITY
-Groundedness:             4.075/5
-Relevance:                3.775/5
-Helpfulness:              2.95/5
-Actionability:            3.7/5
-Brand alignment:          4.375/5
-Overall quality:          3.625/5
-Reviewer escalation accuracy: 80.00%
+Groundedness:             4.4/5
+Relevance:                4.4/5
+Helpfulness:              3.25/5
+Actionability:            3.375/5
+Brand alignment:          4.7/5
+Overall quality:          3.5/5
+Reviewer escalation accuracy: 90.00%
 
 AGREEMENT
-Second-judge weighted kappa: 0.675
-Second-judge escalation kappa: 1.0
+Second-judge weighted kappa: 0.41
+Second-judge escalation kappa: 0.231
 
 RETRIEVAL
 Mean top-1 similarity: 0.8399494999999998

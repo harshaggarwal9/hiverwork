@@ -19,15 +19,15 @@ escalation_f1,0.2872340425531915
 reply_coverage,1.0
 mean_top1_retrieval_similarity,0.8399494999999998
 mean_max_top5_retrieval_similarity,0.8399494999999998
-reply_groundedness_mean,4.075
-reply_relevance_mean,3.775
-reply_helpfulness_mean,2.95
-reply_actionability_mean,3.7
-reply_brand_alignment_mean,4.375
-reply_overall_quality_mean,3.625
-reply_human_escalation_accuracy,0.8
-second_judge_weighted_kappa,0.675
-second_judge_escalation_kappa,1.0
+reply_groundedness_mean,4.4
+reply_relevance_mean,4.4
+reply_helpfulness_mean,3.25
+reply_actionability_mean,3.375
+reply_brand_alignment_mean,4.7
+reply_overall_quality_mean,3.5
+reply_human_escalation_accuracy,0.9
+second_judge_weighted_kappa,0.41
+second_judge_escalation_kappa,0.231
 failure_mode_1,intent_misclassification: 166
 failure_mode_2,over_escalation: 22
 failure_mode_3,weak_retrieval_evidence: 2

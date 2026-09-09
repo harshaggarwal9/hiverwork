@@ -1,10 +1,18 @@
-# Hiver AI Support Agent
+# Hiver AI Support Agent — AppleSupport
 
-AI support agent built for the Hiver SDE Intern take-home assignment using the Customer Support on Twitter dataset.
+AI customer-support agent built for the Hiver SDE Intern take-home assignment using the Customer Support on Twitter dataset.
 
-## What it does
+## Problem
 
-The system processes an incoming customer message through:
+For an incoming customer message, the system:
+
+1. Reconstructs conversation context.
+2. Classifies the customer intent.
+3. Retrieves similar historical AppleSupport interactions.
+4. Decides whether to auto-handle or escalate.
+5. Generates a historically grounded reply for auto-handled cases.
+
+## Architecture
 
 ```text
 Incoming Tweet
