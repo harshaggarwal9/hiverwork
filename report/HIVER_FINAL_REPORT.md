@@ -1,228 +1,158 @@
 # Hiver AI Support Agent — AppleSupport
 
-## 1. Executive Summary
+AI customer-support agent built for the Hiver SDE Intern take-home assignment using the Customer Support on Twitter dataset.
 
-This project builds an evaluation-first AI customer-support agent using the Customer Support on Twitter dataset. AppleSupport was selected as the target support brand. The system reconstructs conversation context, predicts a small data-derived intent taxonomy, retrieves historically similar AppleSupport interactions, decides whether to auto-handle or escalate, and produces a historically grounded reply.
+## Problem
 
-The engineering objective was not to maximize one headline metric, but to build a conservative automation pipeline that uses historical evidence and exposes uncertainty.
+For an incoming customer message, the system:
 
-The prototype demonstrates the complete pipeline. Its strongest operational result is **76.47% automation precision at 25.5% automation coverage**, giving a **19.5% safe automation rate**. Reply evaluation showed relatively strong **groundedness (4.075/5)** and **brand alignment (4.375/5)**.
+1. Reconstructs conversation context.
+2. Classifies the customer intent.
+3. Retrieves similar historical AppleSupport interactions.
+4. Decides whether to auto-handle or escalate.
+5. Generates a historically grounded reply for auto-handled cases.
 
-Intent classification remains the primary bottleneck. The context-aware classifier achieved **0.1403 Macro-F1**, while the final agent achieved **17.0% intent accuracy** on the 200-case evaluation set.
-
-The results therefore demonstrate a complete working architecture while making its current weaknesses explicit.
-
----
-
-## 2. Problem Definition
-
-For every incoming customer-support message, the agent must:
-
-1. Reconstruct enough conversation context to understand the current message.
-2. Assign the message to a small set of support intents.
-3. Retrieve relevant historical AppleSupport responses.
-4. Estimate whether the available evidence is sufficient for automation.
-5. Auto-handle safe cases or escalate uncertain/sensitive cases.
-6. Produce a grounded customer-facing reply when automation is selected.
-
-The final pipeline is:
+## Architecture
 
 ```text
-Incoming customer message
-        |
-        v
-Thread / context reconstruction
-        |
-        v
-Context-aware intent classification
-        |
-        v
-Historical retrieval
-        |
-        v
-Evidence + confidence
-        |
-        v
-Auto-handle / Escalate
-       /        \
-      v          v
-Grounded reply  Human support
+Incoming Tweet
+      |
+      v
+Thread Reconstruction
+      |
+      v
+Context-aware Intent Classification
+      |
+      v
+Historical Retrieval (FAISS)
+      |
+      v
+Evidence + Confidence
+      |
+      v
+Escalation Decision
+    /       \
+Auto-handle  Escalate
+   |            |
+   v            v
+Grounded      Human
+Reply         Support
 ```
 
----
+## Dataset
 
-## 3. Data and Brand Selection
+Dataset: Customer Support on Twitter (Kaggle)
 
-The source dataset is the Customer Support on Twitter Kaggle dataset.
+Selected brand: **AppleSupport**
 
-Initial profiling found:
+Expected local dataset path:
 
-- **2,811,774 tweets**
-- **702,777 unique authors**
-- **2,017,439 tweets with `in_response_to_tweet_id`**
-- Date range: **May 2008 – December 2017**
+```text
+data/raw/twcs.csv
+```
 
-AppleSupport was selected from the candidate support brands because it provided a large support corpus with useful customer-to-support interactions.
+The raw dataset and large generated model artifacts are intentionally excluded from Git.
 
-The AppleSupport subset contained:
+## Setup
 
-- **106,860 AppleSupport tweets**
-- **143,518 related tweets**
-- **81,391 reconstructed valid threads**
-- **228,380 total messages**
+```bash
+python -m venv .venv
+```
 
-The raw dataset is intentionally excluded from the Git repository because of its size.
+Windows:
 
----
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
-## 4. Historical Support Corpus
+Install dependencies:
 
-Immediate customer-to-support pairing produced approximately **104,108 examples**.
+```bash
+pip install -r requirements.txt
+```
 
-Context-aware construction used up to four previous messages together with the current customer message and produced approximately **121,520 examples**.
+## Reproduce the evaluation
 
-This context is important because short Twitter messages can be difficult to interpret without conversation history.
+The repository contains the numbered scripts used for the full pipeline.
 
----
+The main stages are:
 
-## 5. Intent Taxonomy
+```text
+01  Profile dataset
+02  Identify support brands
+03  Reconstruct AppleSupport threads
+04  Build support examples
+05  Discover candidate intents
+06  Review intents
+07  Build context-aware examples
+08  Create golden evaluation set
+09  Apply annotations
+10  Prepare temporal train/dev split
+11  Train TF-IDF baseline
+12  Build FAISS retrieval index
+13  Evaluate retrieval
+17  Train context-aware classifier
+18  Audit golden labels
+19  Run majority baseline
+20  Run final context-aware agent
+21  Analyze escalation thresholds
+22  Update thresholds
+23  Set final balanced thresholds
+24  Prepare reply evaluation
+25  Calculate reply quality
+26  Prepare second judge
+27  Calculate judge agreement
+28  Failure analysis
+29  Final metric consolidation
+```
 
-Candidate intents were first discovered using clustering and keyword analysis over a 20,000-message sample.
+After the required dataset and generated intermediate artifacts are available, the final evaluation can be reproduced with:
 
-The final taxonomy contains ten support intents:
+```bash
+python scripts/20_update_agent_context.py
+python scripts/24_prepare_reply_evaluation.py
+python scripts/25_calculate_reply_quality.py
+python scripts/26_prepare_reviewer2.py
+python scripts/27_calculate_reviewer_agreement.py
+python scripts/28_failure_analysis.py
+python scripts/29_finalize_metrics.py
+```
 
-1. `software_update`
-2. `device_troubleshooting`
-3. `battery_power`
-4. `connectivity`
-5. `apple_music_media`
-6. `account_security`
-7. `purchase_store_refund`
-8. `app_service_issue`
-9. `how_to_settings`
-10. `general_or_insufficient_context`
+The complete dataset-processing pipeline is documented by the numbered scripts under `scripts/`.
 
-The taxonomy was intentionally kept small enough to support routing rather than creating many overlapping labels.
-
----
-
-## 6. Evaluation Design
-
-A **200-case golden evaluation set** was created and excluded from training and retrieval.
-
-Examples belonging to golden threads were also removed from train/dev data to reduce thread-level leakage.
-
-Temporal split:
-
-- Training: **96,723 examples**
-- Development: **24,181 examples**
-
-The training period precedes the development period chronologically.
-
-The golden annotations and reply-quality ratings were **AI-assisted**, not independently produced by multiple human reviewers. Results should therefore be treated as development/evaluation evidence rather than production-grade human benchmarks.
-
----
-
-## 7. Baselines
-
-### Majority baseline
-
-The majority-class classifier predicts `device_troubleshooting`.
-
-**Macro-F1: 0.0222**
-
-### TF-IDF + Logistic Regression
-
-A text-only TF-IDF classifier trained using weakly labelled historical examples achieved:
-
-**Macro-F1: 0.0928**
-
-### Context-aware TF-IDF + Logistic Regression
-
-Adding conversation context improved performance to:
-
-**Macro-F1: 0.1403**
-
-This is a **0.0475 absolute improvement** over the text-only baseline.
-
-The absolute score remains low, showing that intent classification is still the dominant technical limitation.
-
----
-
-## 8. Historical Retrieval
-
-A FAISS `IndexFlatIP` index was built over **96,723 historical training examples** using normalized embeddings from:
-
-`sentence-transformers/all-MiniLM-L6-v2`
-
-The retrieval query includes conversation context and the current customer message.
-
-The final automation policy uses a retrieval similarity threshold of:
-
-**0.70**
-
-Retrieval is used to provide historical evidence for response drafting and for deciding whether enough precedent exists to automate.
-
----
-
-## 9. Escalation Policy
-
-The agent uses conservative escalation logic.
-
-Final thresholds:
+## Final configuration
 
 ```text
 Minimum intent confidence: 0.50
 Minimum retrieval similarity: 0.70
 Minimum evidence examples: 2
+Top-K retrieval: 5
+Embedding model: sentence-transformers/all-MiniLM-L6-v2
 ```
 
-Sensitive intents such as account/security and purchase/refund receive additional conservative treatment.
+## Results
 
-Thresholds were selected using development-set score distributions rather than tuning directly on the golden set.
+### Intent classification
 
-The design intentionally trades coverage for safer automation when classifier confidence or historical evidence is insufficient.
+| Model | Macro-F1 |
+|---|---:|
+| Majority baseline | 0.0222 |
+| TF-IDF + Logistic Regression | 0.0928 |
+| Context-aware TF-IDF + Logistic Regression | 0.1403 |
 
----
-
-## 10. Final Agent Results
-
-The final agent was evaluated on **200 golden cases**.
+### Final agent
 
 | Metric | Result |
 |---|---:|
 | Intent accuracy | 17.0% |
 | Action accuracy | 33.0% |
-| Auto-handled cases | 51 / 200 |
-| Escalated cases | 149 / 200 |
-| Automation coverage | 25.5% |
+| Auto-handle coverage | 25.5% |
 | Automation precision | 76.47% |
 | Safe automation rate | 19.5% |
-| Escalation precision | 18.12% |
-| Escalation recall | 69.23% |
-| Reply coverage | 100% |
 
-### Interpreting the headline metric
+The 76.47% automation precision must be interpreted together with its 25.5% coverage.
 
-The **76.47% automation precision** should not be interpreted as a standalone success metric.
-
-It was achieved at only **25.5% automation coverage**.
-
-A high precision number can therefore be misleading if the system automates only a small fraction of incoming cases.
-
-The more useful operational view is the combination of:
-
-- **76.47% automation precision**
-- **25.5% automation coverage**
-- **19.5% safe automation rate**
-
----
-
-## 11. Reply-Quality Evaluation
-
-Forty cases were sampled for reply-quality review.
-
-Average scores:
+### Reply quality
 
 | Dimension | Score / 5 |
 |---|---:|
@@ -231,200 +161,84 @@ Average scores:
 | Helpfulness | 2.950 |
 | Actionability | 3.700 |
 | Brand alignment | 4.375 |
-| Overall quality | 3.625 |
+| Overall | 3.625 |
 
-The strongest properties were groundedness and brand alignment.
+Second-judge agreement:
 
-Helpfulness was weaker, reflecting limitations in the current simple retrieval-grounded response generator.
+- Exact agreement: 67.9%
+- Adjacent agreement: 90.4%
+- Weighted kappa: 0.675
 
-The response generator was deliberately kept simple and retrieval-grounded because the project did not rely on a paid external LLM API.
+The judges were AI-assisted rather than independent human reviewers.
 
----
+## Golden evaluation set
 
-## 12. Second-Judge Agreement
+The evaluation set contains **200 examples**.
 
-A second AI-assisted judge evaluated the same 40 reply-quality cases.
+The annotations were AI-assisted rather than fully independent human labels, which is an important limitation of the current evaluation.
 
-Across 240 quality-rating pairs:
+## Failure analysis
 
-- **Exact agreement: 67.9%**
-- **Adjacent agreement: 90.4%**
-- **Mean absolute difference: 0.487**
-- **Weighted kappa: 0.675**
+The main failure mode was intent misclassification.
 
-For escalation decisions:
+Other observed failures:
 
-- **Exact agreement: 100%**
-- **Cohen's kappa: 1.000**
-
-These are **second-judge agreement measurements**, not human-human agreement.
-
----
-
-## 13. Failure Analysis
-
-The dominant observed failure mode was intent misclassification.
-
-| Failure mode | Count | Share |
-|---|---:|---:|
-| Intent misclassification | 166 | 83.0% |
-| Over-escalation | 22 | 11.0% |
-| Weak retrieval evidence | 2 | 1.0% |
-| Unsafe automation | 1 | 0.5% |
-| Low intent confidence | 1 | 0.5% |
-| Low helpfulness | 1 | 0.5% |
-| No major failure | 7 | 3.5% |
-
-### Intent misclassification
-
-Short and ambiguous customer messages remain difficult even with conversation context.
-
-Many support interactions contain replies whose meaning depends heavily on preceding messages, which limits the effectiveness of the current lightweight classifier.
-
-### Over-escalation
-
-The conservative decision policy escalates cases when confidence or historical evidence is weak. This reduces unsafe automation but also lowers automation coverage.
-
-### Weak retrieval evidence
-
-Some examples have plausible intent predictions but do not have strong historical matches above the retrieval threshold.
-
-### Unsafe automation
-
-One reviewed case exposed a weakness in the current reply policy where the generated response did not provide a sufficiently actionable path to specialist support.
-
-### Low-confidence classification
-
-Some cases contain inherently ambiguous language, resulting in low confidence and escalation.
-
-The failure distribution indicates that improving intent classification is likely to provide the largest overall benefit.
-
----
-
-## 14. Product Finding
-
-The evaluation suggests that automation quality depends more on routing quality than on response wording alone.
-
-A more sophisticated response generator cannot fully compensate for:
-
-- incorrect intent classification
+- over-escalation
 - weak retrieval evidence
-- insufficient conversation context
+- unsafe automation
+- low intent confidence
+- occasional low-helpfulness replies
 
-The highest-value next investment is therefore better intent understanding, context modelling, retrieval reranking, and confidence calibration before adding a more powerful generation layer.
-
----
-
-## 15. Key Engineering Decisions
-
-### Decision 1 — Use one brand
-
-AppleSupport was selected to keep the problem focused and allow deeper historical analysis.
-
-### Decision 2 — Use conversation context
-
-Context was added because many support messages are too short to classify reliably in isolation.
-
-### Decision 3 — Retrieve before deciding automation
-
-Historical retrieval happens before the final escalation decision so that insufficient precedent can trigger safe abstention.
-
-### Decision 4 — Prefer conservative automation
-
-The system sacrifices coverage when confidence or historical evidence is insufficient.
-
-### Decision 5 — Keep replies grounded
-
-Replies are derived from historical support behavior rather than unconstrained generation.
-
----
-
-## 16. Limitations
-
-The main limitations are:
-
-1. **AI-assisted evaluation**  
-   The golden labels and reply-quality judgments were AI-assisted rather than fully independent human annotations.
-
-2. **Weakly labelled training data**  
-   The classification training data was constructed using heuristic/silver labels rather than a large manually labelled training set.
-
-3. **Low intent performance**  
-   The context-aware classifier achieved only **0.1403 Macro-F1**, while the final agent achieved **17.0% intent accuracy**.
-
-4. **Simple response generation**  
-   The current response generator is retrieval-grounded but is not a production-grade LLM generation system.
-
-5. **Conservative escalation**  
-   The system intentionally escalates many uncertain cases, limiting automation coverage.
-
-6. **Twitter-specific language**  
-   Twitter support messages contain abbreviations, very short replies, typos, and conversational references that may not generalize directly to other support channels.
-
----
-
-## 17. Next-Week Plan
-
-### 1. Improve intent classification
-
-Create a larger manually labelled training set and evaluate stronger contextual classifiers.
-
-### 2. Calibrate confidence
-
-Use validation-based calibration rather than raw classifier probabilities to improve escalation decisions.
-
-### 3. Improve retrieval
-
-Add metadata-aware filtering and reranking so the system prefers examples with matching intent, product context, and conversation state.
-
-### 4. Add a controlled LLM rewrite layer
-
-Use an LLM only after retrieval has selected trusted historical evidence. The LLM should rewrite or combine evidence rather than invent unsupported troubleshooting steps.
-
-### 5. Expand human evaluation
-
-Have multiple independent human reviewers score a larger sample and explicitly measure unsafe-response rate.
-
----
-
-## 18. Reproducibility
-
-The repository contains the numbered scripts used to construct the dataset, prepare examples, discover intents, train baselines, build retrieval, evaluate the agent, perform reply-quality evaluation, analyze thresholds, perform failure analysis, and generate final metrics.
-
-The raw dataset is intentionally excluded from Git.
-
-Expected local dataset path:
+See:
 
 ```text
-data/raw/twcs.csv
+evaluation/failure_analysis.csv
+evaluation/failure_analysis_summary.txt
 ```
 
-Generated evaluation artifacts are stored under:
+## Tests
 
-```text
-evaluation/
-```
-
-Configuration is stored under:
-
-```text
-configs/
-```
-
-The test suite can be run with:
+Run:
 
 ```bash
 pytest -q
 ```
 
----
+Expected current result:
 
-## 19. Conclusion
+```text
+5 passed
+```
 
-The project demonstrates a complete evaluation-first support-agent workflow:
+## Repository structure
 
-**context → intent → retrieval → confidence → escalation → grounded reply**
+```text
+hiver/
+├── configs/
+├── evaluation/
+├── notebooks/
+├── report/
+├── scripts/
+├── src/
+├── tests/
+├── requirements.txt
+├── pytest.ini
+├── .env.example
+├── .gitignore
+└── README.md
+```
 
-The strongest operational result is **76.47% automation precision at 25.5% coverage**, while intent classification remains the dominant bottleneck.
+## Limitations
 
-The prototype is therefore not presented as production-ready. The next priority is improving labelled intent data, contextual classification, retrieval reranking, confidence calibration, and independent human evaluation.
+The current evaluation has two important limitations:
+
+1. Golden annotations were AI-assisted rather than independently hand-labelled by humans.
+2. The second judge was also AI-assisted, so the reported agreement is not human-vs-LLM agreement.
+
+The current classifier is also weakly labelled and remains the main technical bottleneck.
+
+## Detailed report
+
+See:
+
+`report/HIVER_FINAL_REPORT.md`
